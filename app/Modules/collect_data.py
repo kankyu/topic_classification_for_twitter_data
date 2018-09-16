@@ -1,10 +1,11 @@
 import time
 from fuzzywuzzy import fuzz
 import twitter_tokenizer
+import os
 
 #### Topics that will be collected.
-# topics = ['#happy', '#fun'] TODO rewrite as a test
-topics = ['#sports', '#politics', '#technology', '#food', '#music']
+topics = ['#happy', '#fun'] #TODO rewrite as a test
+# topics = ['#sports', '#politics', '#technology', '#food', '#music']
 
 ignore_doc = 'Just added myself to the http://wefollow.com twitter directory under: #'
 
@@ -36,7 +37,10 @@ class TagCollection:
         first_charcter = 0
         
         txtfile = open(self.filename, "w+")
-        with open("/home/ubuntu/vol1/4th_year_project/mhkmodes/tweets2009-06.txt") as tweets:
+        path = '/home/ubuntu/vol1/4th_year_project/mhkmodes'
+        tweets_file = os.path.join(path, 'tweets2009-06.txt')
+        
+        with open("tweets_file") as tweets:
 
             for idx, doc in enumerate(tweets):
             
